@@ -5,5 +5,5 @@ module.exports =
             req: req
         }
         res.render('profil/index', dataview)
-    }
+    },
 }
