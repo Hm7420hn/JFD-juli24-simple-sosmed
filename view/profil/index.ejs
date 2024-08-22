@@ -3,8 +3,29 @@
 <%- include('../template/menu-atas') %>
 
 <h1>Halaman Profil</h1>
-<button class="btn btn-primary">tomble</button>
-<i class="fa-solid fa-circle-user me-2"></i> Profil saya
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+        <div class="col-md-4">
+            <img src="/gambar/user-default.jpeg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+            <a href="/profil/edit" class="btn btn-premary float-end" >
+                <i class="fa-solid fa-edit"></i>
+            </a>
+            <h5 class="card-title"><%= req.session.user[0].nama_lengkap %></h5>
+            <h5 class="card-title">
+                <%= req.session.user[0].username %>
+            </h5>
+            <p class="card-text">
+                <%= req.session.user[0].bio %>
+            </p>
+            <p class="card-text">
+                <small class="text-body-secondary">Last updated: <%= req.session.user[0].Last_update %></small></p>
+            </div>
+        </div>
+        </div>
+    </div>
 
 
 <%- include('../template/head-end') %>
