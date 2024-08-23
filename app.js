@@ -46,6 +46,7 @@ app.get('/profil', cek_login, c_profil.index)
 app.get('/profil/edit', cek_login, c_profil.form_edit)
 app.post('/profil/proses-update', cek_login, c_profil.proses_update)
 app.get('/profil/edit-foto', cek_login, c_profil.form_edit_foto)
+app.get('/profil/prosess-update-foto', cek_login, c_profil.proses_update_foto)
 
 
 
