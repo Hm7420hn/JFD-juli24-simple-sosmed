@@ -1,0 +1,19 @@
+const mysql    = require('mysql2')
+const eksekusi = require('../config/database').eksekusi
+const moment   = require('moment')
+
+module.exports =
+{
+    update: function(req) {
+        let data = {
+            nama_lengkap    : req.body.form_nama_lengkap,
+            bio             : req.body.form_bio,
+            last_update     : moment().format("YYYY-MM-DD HH:mm:ss"),
+        }
+        let id_user = req.session.user[0].id
+        return eksekusi( mysql.format(
+            `UPDATE user SET ? WHERE id = ?`,
+            [data, id_user]
+        ))
+    }
+}
