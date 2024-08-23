@@ -2,12 +2,21 @@
 <%- include('../template/head-start') %>
 <%- include('../template/menu-atas') %>
 
-<div class="btn btn-primary pt-3">
+<div class="container pt-3">
     <div class="row d-flex justify-content-center">
+        <% if (message) { %>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <i class="fa-solid fa-info-cercle me-2"></i><%= message %>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><br>
+            </div>
+            <% } %>
         <h1>Halaman Profil</h1>
             <div class="card mt-3 mb-3">
                 <div class="row g-0">
                 <div class="col-md-4">
+                    <a href="/profil/edit" class="btn btn-premary float-end" >
+                        <i class="fa-solid fa-edit"></i>
+                    </a>
                     <img src="/gambar/user-default.jpeg" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">

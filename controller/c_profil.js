@@ -7,7 +7,8 @@ module.exports =
     index: function(req,res) {
         let dataview = {
             req: req,
-            moment: moment 
+            moment: moment,
+            message: req.query.msg
         }
         res.render('profil/index', dataview)
     },
