@@ -4,6 +4,7 @@ const port           = 3000
 const passport       = require('passport')
 const cookieParser   = require('cookie-parser')
 const session        = require('express-session')
+const fileUpload     = require('express-fileupload')
 
 const c_beranda  = require('./controller/c_beranda')
 const c_auth     = require('./controller/c_auth')
@@ -27,6 +28,7 @@ app.use( session({
 }))
 app.use( passport.initialize() )
 app.use( passport.session() )
+app.use(fileUpload() )
 
 
 app.use( express.urlencoded({extended:false}) )
@@ -43,6 +45,7 @@ app.get('/feed', cek_login, c_feed.index)
 app.get('/profil', cek_login, c_profil.index)
 app.get('/profil/edit', cek_login, c_profil.form_edit)
 app.post('/profil/proses-update', cek_login, c_profil.proses_update)
+app.get('/profil/edit-foto', cek_login, c_profil.form_edit_foto)
 
 
 
