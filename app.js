@@ -10,7 +10,7 @@ const c_beranda  = require('./controller/c_beranda')
 const c_auth     = require('./controller/c_auth')
 const cek_login  = c_auth.cek_login
 const c_feed     = require('./controller/c_feed')
-const c_profil   = require('./controller/c_profil.js')
+const c_profil   = require('./controller/c_profil')
 
 
 // settingan session untuk login
@@ -28,11 +28,12 @@ app.use( session({
 }))
 app.use( passport.initialize() )
 app.use( passport.session() )
-app.use(fileUpload() )
 
 
 app.use( express.urlencoded({extended:false}) )
 app.use(express.static('public') )
+app.use(fileUpload() )
+
 
 app.set('view engine', 'ejs')
 app.set('views', './view')
@@ -46,7 +47,7 @@ app.get('/profil', cek_login, c_profil.index)
 app.get('/profil/edit', cek_login, c_profil.form_edit)
 app.post('/profil/proses-update', cek_login, c_profil.proses_update)
 app.get('/profil/edit-foto', cek_login, c_profil.form_edit_foto)
-app.get('/profil/prosess-update-foto', cek_login, c_profil.proses_update_foto)
+app.post('/profil/proses-update-foto', cek_login, c_profil.proses_update_foto)
 
 
 

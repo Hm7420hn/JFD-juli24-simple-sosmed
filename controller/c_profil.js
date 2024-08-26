@@ -39,19 +39,21 @@ module.exports =
 
     form_edit_foto: function(req,res) {
         let dataview = {
-            req: req
+            req: req,
         }
-        res.render('profil/form-edit_foto', dataview)
+        res.render('profil/form_edit_foto', dataview)
     },
 
+    
+
     proses_update_foto: function (req,res) {
-        let foto    = req.file.form_uploadfoto
+        let foto    = req.files.form_uploadfoto
 
         // ganti nama file asli 
         let username      = req.session.user[0].username.replaceAll('.','-') 
         let datetime      = moment().format('YYYMMDD_HHHmmss')
         let file_name     = username + '_' + datetime + '_' + foto.name
-        let folder_simpan = path.join(__dirname, '../public/upload/', foto_name)
+        let folder_simpan = path.join(__dirname, '../public/upload/', file_name)
 
         // pakai function mv() untuk melatakkan file di suatu folder/direktori
         foto.mv(folder_simpan, async function(err) {
