@@ -11,6 +11,7 @@ const c_auth     = require('./controller/c_auth')
 const cek_login  = c_auth.cek_login
 const c_feed     = require('./controller/c_feed')
 const c_profil   = require('./controller/c_profil')
+const c_posting   = require('./controller/c_posting')
 
 
 // settingan session untuk login
@@ -49,6 +50,7 @@ app.post('/profil/proses-update', cek_login, c_profil.proses_update)
 app.get('/profil/edit-foto', cek_login, c_profil.form_edit_foto)
 app.post('/profil/proses-update-foto', cek_login, c_profil.proses_update_foto)
 
+app.get('/posting', cek_login, c_posting.index)
 
 
 app.listen(port, ()=>{
