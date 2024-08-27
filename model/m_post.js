@@ -18,6 +18,15 @@ module.exports =
             `INSERT INTO post SET ?`,
             [data]
         ))
+    },
+
+
+    get_all: function() {
+        return eksekusi( mysql.format(
+        `SELECT * FROM  post
+        ORDER BY id DESC`
+        
+        ))
     }
 
 }
