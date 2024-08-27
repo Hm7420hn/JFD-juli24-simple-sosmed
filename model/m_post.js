@@ -12,6 +12,7 @@ module.exports =
             file2         : file2_name,
             file3         : file3_name,
             created_at    : moment().format("YYYY-MM-DD HH:mm:ss"),
+            created_by    : req.session.user[0].id
         }
         
         return eksekusi( mysql.format(
