@@ -56,5 +56,12 @@ module.exports =
             let message = 'Sesi anda habis, silahkan login ulang'
             res.redirect(`/login?msg=${message}`)
         }
+    },
+
+
+    proses_logout: function(req,res) {
+        req.session.destroy( (err)=>{
+            res.redirect('/')
+        })
     }
 }
